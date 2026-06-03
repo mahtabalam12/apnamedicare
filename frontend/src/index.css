@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --card: #ffffff;
+  --border-light: #f1f5f9;
+  --border-medium: #e2e8f0;
+  --text-main: #0f172a;
+  --text-sub: #64748b;
+}
+
+@theme {
+  --color-primary-50: #f5f3ff;
+  --color-primary-100: #ede9fe;
+  --color-primary-200: #ddd6fe;
+  --color-primary-300: #c4b5fd;
+  --color-primary-400: #a78bfa;
+  --color-primary-500: #8b5cf6;
+  --color-primary-600: #7c3aed;
+  --color-primary-700: #6d28d9;
+  --color-primary-800: #5b21b6;
+  --color-primary-900: #4c1d95;
+  --color-primary-950: #2e1065;
+  
+  --color-slate-50: var(--background);
+  --color-slate-100: var(--border-light);
+  --color-slate-200: var(--border-medium);
+  --color-slate-900: var(--text-main);
+  --color-slate-500: var(--text-sub);
+  
+  --font-sans: "Outfit", "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--text-main);
+    @apply bg-slate-50 text-slate-900 antialiased font-sans scroll-smooth transition-colors duration-300;
+  }
+}
+
+/* Custom Utilities for Glassmorphism and animations */
+@layer utilities {
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/40 shadow-sm;
+  }
+  .glass-dark {
+    @apply bg-slate-900/80 backdrop-blur-xl border border-slate-700/50;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-indigo-600;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-200/50;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
+}
+
+/* Custom button hover effect */
+.btn-shine {
+  @apply relative overflow-hidden;
+}
+.btn-shine::after {
+  content: '';
+  @apply absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-500;
+}
+.btn-shine:hover::after {
+  @apply left-full;
+}
