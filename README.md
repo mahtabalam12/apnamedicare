@@ -167,4 +167,4 @@ Contributions, bug reports, and pull requests are welcome!
 
 ---
 
-*Made with ❤️ by [Mahtab Alam](https://github.com/mahtabalam12)*
+*Made with ❤️ by [Md Mahtab Alam](https://github.com/mahtabalam12)*
